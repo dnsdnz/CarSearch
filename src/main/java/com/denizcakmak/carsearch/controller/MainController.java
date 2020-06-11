@@ -17,6 +17,10 @@ public class MainController {
     @Autowired  //Inject bean to another bean
     ReadFile readFile;
 
+    @GetMapping(value = "/{criteria}/{key}", produces = "application/json")
+    public List<Car> getBook(@PathVariable String criteria,@PathVariable String key) {
+        return readFile.search(criteria,key);
+    }
 
 
 }
